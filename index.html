@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;500;700&display=swap" rel="stylesheet">
+
+    <title>قاموس المصطلحات الإدارية والتسويقية | 7 مجموعات</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', sans-serif;
+            font-size: large
+        }
+
+        body {
+            background: #f4f7fc;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            line-height: 1.6;
+            color: #1e2b3c;
+        }
+
+        .container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #0a2540;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
+            word-break: break-word;
+        }
+
+        .subhead {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #4b5c6b;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px solid #dce3eb;
+            padding-bottom: 1.2rem;
+            font-weight: 500;
+        }
+
+        .group-section {
+            background: #ffffff;
+            /* border-radius: 24px; */
+            /* box-shadow: 0 12px 30px rgba(0, 20, 40, 0.08); */
+            margin-bottom: 2.8rem;
+            overflow: hidden;
+            transition: all 0.2s ease;
+            border: 1px solid #e9eef3;
+        }
+
+        .group-header {
+            background: linear-gradient(105deg, #0b2b4f 0%, #1a3f61 100%);
+            padding: 1.2rem 2rem;
+            color: white;
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            border-bottom: 2px solid #ffc107;
+        }
+
+        .group-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin: 0;
+        }
+
+        .group-sub {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #cfdfee;
+            margin-right: auto;
+            background: rgba(255, 255, 255, 0.12);
+            padding: 0.25rem 1rem;
+            /* border-radius: 30px; */
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+            padding: 1.5rem 1.8rem 2rem;
+            background: #ffffff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+            min-width: 700px;
+            white-space: normal;
+            table-layout: auto;
+        }
+
+        th {
+            background: #f0f4fa;
+            color: #0b2b4f;
+            font-weight: 700;
+            font-size: 1rem;
+            padding: 1rem 1rem;
+            text-align: right;
+            border-bottom: 2px solid #b6c8db;
+            vertical-align: middle;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 1rem 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: top;
+            color: #1f2a3a;
+            transition: background 0.15s;
+        }
+
+        tr:hover td {
+            background-color: #f9fbff;
+        }
+
+        .term-en {
+            font-weight: 700;
+            color: #004080;
+            font-size: 1rem;
+            direction: ltr;
+            display: inline-block;
+            background: #e8f0fe;
+            padding: 0.2rem 0.7rem;
+            /* border-radius: 20px; */
+            text-align: left;
+        }
+
+        .term-ar {
+            font-weight: 700;
+            color: #0c3c5c;
+            font-size: 1.05rem;
+        }
+
+        .def-cell {
+            color: #2c3a4b;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* alternating row subtle */
+        tbody tr:nth-child(even) td {
+            background-color: #fafbfc;
+        }
+
+        tbody tr:nth-child(even):hover td {
+            background-color: #f0f4fe;
+        }
+
+        /* mobile adjustments */
+        @media (max-width: 750px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+
+            h1 {
+                font-size: 1.9rem;
+            }
+
+            .group-header {
+                padding: 1rem 1.2rem;
+            }
+
+            .group-title {
+                font-size: 1.5rem;
+            }
+
+            .table-wrapper {
+                padding: 1rem 0.8rem;
+            }
+
+            th,
+            td {
+                padding: 0.8rem 0.6rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        .note {
+            background: #fff7e0;
+            border-right: 5px solid #ffb300;
+            padding: 0.8rem 1.5rem;
+            margin: 0 1.8rem 1.5rem;
+            /* border-radius: 12px; */
+            font-size: 0.9rem;
+            color: #4d3b1a;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: #5e6f82;
+            font-size: 0.9rem;
+        }
+
+        /* تنسيق زر الميكروفون المضاف حديثاً */
+        .speak-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 0 6px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            vertical-align: middle;
+            transition: transform 0.2s, opacity 0.2s;
+            opacity: 0.6;
+            padding: 2px;
+        }
+
+        .speak-btn:hover {
+            transform: scale(1.3);
+            opacity: 1;
+        }
+
+        /* جعل الكلمة الإنجليزية والزر في سطر واحد متناسق */
+        .term-container {
+            display: inline-flex;
+            align-items: center;
+            direction: ltr;
+        }
+
+        .def-en-container {
+            position: relative;
+            padding-right: 25px;
+            /* مساحة لزر الميكروفون */
+        }
+
+        .def-en-container .speak-btn {
+            position: absolute;
+            right: 0;
+            top: 4px;
+        }
+
+        /* تنسيق لوحة التحكم في الصوت */
+.voice-controls {
+    background: #ffffff;
+    border: 1px solid #dce3eb;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.voice-controls h3 {
+    font-size: 1.1rem;
+    color: #0b2b4f;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #ffc107;
+    padding-bottom: 0.5rem;
+}
+.control-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    gap: 1rem;
+}
+.control-row label {
+    width: 150px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+.control-row select, .control-row input {
+    flex: 1;
+    padding: 0.4rem;
+    border: 1px solid #b6c8db;
+    background: #fafbfc;
+}
+@media (max-width: 600px) {
+    .control-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.3rem;
+    }
+    .control-row label {
+        width: 100%;
+    }
+}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📘 معجم المصطلحات الإدارية والتسويقية</h1>
+        <div class="subhead">سبع مجموعات رئيسية · تعريفات عربي-إنجليزي · من واقع المنهج</div>
+
+        <!-- لوحة التحكم في إعدادات الصوت -->
+        <div class="voice-controls">
+            <h3>⚙️ إعدادات نطق الكلمات:</h3>
+            <div class="control-row">
+                <label for="voice-select">صوت القارئ:</label>
+                <select id="voice-select">
+                    <option value="">جاري تحميل الأصوات...</option>
+                </select>
+            </div>
+            <div class="control-row">
+                <label for="speed-range">السرعة (<span id="speed-val">1.0</span>):</label>
+                <input type="range" id="speed-range" min="0.5" max="2" step="0.1" value="1">
+            </div>
+            <div class="control-row">
+                <label for="pitch-range">درجة الصوت (<span id="pitch-val">1.0</span>):</label>
+                <input type="range" id="pitch-range" min="0.5" max="2" step="0.1" value="1">
+            </div>
+        </div>
+
+        <!-- المجموعة 1: مفاهيم التسويق -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">📊 المجموعة الأولى</span>
+                <span class="group-sub">مفاهيم التسويق (Marketing Concepts)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Marketing</span></td>
+                            <td class="term-ar">التسويق</td>
+                            <td class="def-cell">The performance of activities which seek to accomplish an
+                                organization's objectives by anticipating customer needs and directing a flow of
+                                need-satisfying goods and services from producer to customer.</td>
+                            <td class="def-cell">القيام بالمناشط التي تسعى لتحقيق أهداف المنظمة عن طريق التحديد المسبق
+                                لحاجات الزبون وتوجيه تدفق البضائع والخدمات المشبعة لهذه الحاجات من المنتج إلى الزبون.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Market</span></td>
+                            <td class="term-ar">السوق</td>
+                            <td class="def-cell">A market of potential customers sharing a particular need or want who
+                                might be willing and able to engage in exchange to satisfy that need or want.</td>
+                            <td class="def-cell">يشمل كل الزبائن المتوقعين الذين يشتركون في حاجة أو رغبة معينة ولديهم
+                                استعداد وقدرة للدخول في مبادلة لإشباع تلك الحاجة أو الرغبة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Marketing Mix</span></td>
+                            <td class="term-ar">المزيج التسويقي</td>
+                            <td class="def-cell">The mixture of controllable marketing variables (product, place, price,
+                                and promotion) that the firm uses to achieve the desired level of sales in the target
+                                market.</td>
+                            <td class="def-cell">مزيج متغيرات التسويق التي تحكم الشركة وتستخدمها لتحقيق المستوى المرغوب
+                                من المبيعات في السوق المستهدف (المنتج، التوزيع، السعر، والترويج).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Place (Distribution)</span></td>
+                            <td class="term-ar">المكان (التوزيع)</td>
+                            <td class="def-cell">The various activities that the company undertakes to make the product
+                                accessible and available to target customers.</td>
+                            <td class="def-cell">المناشط المختلفة التي تقوم بها الشركة من أجل إيصال وإتاحة المنتج
+                                للزبائن المستهدفين.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Promotion</span></td>
+                            <td class="term-ar">الترويج</td>
+                            <td class="def-cell">The various activities the company undertakes to communicate its
+                                products' merits and to persuade target customers to buy them.</td>
+                            <td class="def-cell">الأعمال المختلفة التي تقوم بها الشركة من أجل توصيل مزايا منتجاتها
+                                للزبائن المستهدفين وإقناعهم بشرائها.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Market Segmentation</span></td>
+                            <td class="term-ar">تقسيم (تجزئة) السوق</td>
+                            <td class="def-cell">The act of dividing a market into distinct groups of buyers who might
+                                require separate products and separate marketing mixes.</td>
+                            <td class="def-cell">عملية تقسيم السوق إلى مجموعات متميزة وواضحة من المشترين التي قد تطلب
+                                منتجات منفصلة ومزيجات تسويق تناسب كل شريحة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Consumer Buying Behavior</span></td>
+                            <td class="term-ar">سلوك المستهلك الشرائي</td>
+                            <td class="def-cell">The way consumers respond to various marketing stimuli (e.g.,
+                                advertising appeals, price, etc.).</td>
+                            <td class="def-cell">الطريقة التي يتجاوب بها المستهلكون نحو إغراءات التسويق المختلفة
+                                كالتوسلات الإعلانية والسعر وغيرها.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- المجموعة 2: التوزيع والبيع -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">🚚 المجموعة الثانية</span>
+                <span class="group-sub">التوزيع والبيع (Distribution & Selling)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Channel of Distribution</span></td>
+                            <td class="term-ar">قناة التوزيع</td>
+                            <td class="def-cell">A set of institutions which performs all activities utilized to move a
+                                product and its title from production to consumption.</td>
+                            <td class="def-cell">مجموعة المؤسسات التي تمارس كل النشاطات المستخدمة لتحريك المنتج وملكيته
+                                من الإنتاج إلى الاستهلاك.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Intermediary (Middlemen)</span></td>
+                            <td class="term-ar">الوسيط</td>
+                            <td class="def-cell">A trader engaged in the distribution of goods from producer to
+                                consumer.</td>
+                            <td class="def-cell">تاجر يعمل في توزيع البضائع من المنتج إلى المستهلك.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Retailing</span></td>
+                            <td class="term-ar">تجارة التجزئة (القطاعي)</td>
+                            <td class="def-cell">All activities involved in selling goods or services directly to final
+                                consumers for their personal use.</td>
+                            <td class="def-cell">كل المناشط الخاصة ببيع البضائع أو الخدمات مباشرة للمستهلك النهائي
+                                لاستخدامه الشخصي.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Grocery</span></td>
+                            <td class="term-ar">البقالة</td>
+                            <td class="def-cell">The business of a dealer in foodstuffs and other household supplies.
+                            </td>
+                            <td class="def-cell">تجارة المواد الغذائية ومستلزمات الأسرة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Supermarket</span></td>
+                            <td class="term-ar">السوبر ماركت</td>
+                            <td class="def-cell">A large self-service store retailing food and household supplies.</td>
+                            <td class="def-cell">محل كبير لبيع مواد الطعام ومستلزمات الأسرة بالقطاعي على أساس الخدمة
+                                الذاتية.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Cooperative Society</span></td>
+                            <td class="term-ar">جمعية تعاونية</td>
+                            <td class="def-cell">A retailing commercial enterprise owned and managed by and for the
+                                benefit of customers or workers.</td>
+                            <td class="def-cell">عمل تجاري بالقطاعي مملوك ومدار بواسطة الزبائن أو العاملين لفائدتهم.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Department Store</span></td>
+                            <td class="term-ar">متجر الأقسام</td>
+                            <td class="def-cell">A retailing large shop divided into departments selling a great many
+                                kinds of goods.</td>
+                            <td class="def-cell">متجر قطاعي كبير يقسم إلى أقسام ويبيع عدداً كبيراً جداً من البضائع.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Discount House</span></td>
+                            <td class="term-ar">بيت الخصم</td>
+                            <td class="def-cell">A shop offering for sale most of its merchandise at prices below the
+                                recommended prices.</td>
+                            <td class="def-cell">محل يقوم ببيع معظم بضائعه بأسعار أقل من الأسعار الموصى بها.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Mail Order Retailing</span></td>
+                            <td class="term-ar">تجارة التجزئة بالبريد</td>
+                            <td class="def-cell">A system of buying and selling merchandise through the post.</td>
+                            <td class="def-cell">نظام لشراء وبيع البضاعة عن طريق البريد.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Wholesaling</span></td>
+                            <td class="term-ar">تجارة الجملة</td>
+                            <td class="def-cell">All activities involved in selling goods or services to those who buy
+                                for resale or business use.</td>
+                            <td class="def-cell">تشمل كل المناشط الخاصة ببيع البضائع أو الخدمات لأولئك الذين يشترونها
+                                لإعادة بيعها أو للاستخدام التجاري.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- المجموعة 3: الترويج وإدارة المبيعات -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">📢 المجموعة الثالثة</span>
+                <span class="group-sub">الترويج وإدارة المبيعات (Promotion & Sales)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Advertising</span></td>
+                            <td class="term-ar">الإعلان</td>
+                            <td class="def-cell">The action or practice of drawing public attention to goods, services,
+                                events, etc.</td>
+                            <td class="def-cell">ممارسة لفت انتباه الجمهور نحو البضائع والخدمات والأحداث.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Sales Promotion</span></td>
+                            <td class="term-ar">تنشيط المبيعات</td>
+                            <td class="def-cell">A wide variety of promotional tools designed to stimulate earlier
+                                and/or stronger market response (e.g., contests, price-offs, samples).</td>
+                            <td class="def-cell">تشكيلة كبيرة من أدوات الترويج المصممة لتحفيز الشراء المبكر أو تشجيع
+                                زيادة الشراء (مثل المسابقات وتخفيض الأسعار).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Sales Management</span></td>
+                            <td class="term-ar">إدارة المبيعات</td>
+                            <td class="def-cell">Management responsible for introducing the company’s products to its
+                                target markets and achieving the desired sales volume.</td>
+                            <td class="def-cell">الوظيفة المسئولة عن تقديم منتجات الشركة لأسواقها المستهدفة وتحقيق
+                                مستويات المبيعات المرغوبة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Personal Selling</span></td>
+                            <td class="term-ar">البيع الشخصي</td>
+                            <td class="def-cell">The selling of high-priced, technologically complex products by the
+                                company’s salesmen or sales representatives.</td>
+                            <td class="def-cell">بيع المنتجات الغالية وذات التعقيد الفني بواسطة رجال مبيعات الشركة أو
+                                ممثلي المبيعات.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Sales-Force Compensation</span></td>
+                            <td class="term-ar">مكافأة قوة المبيعات</td>
+                            <td class="def-cell">The salaries, bonuses, fringe benefits, and commissions forming the
+                                income of a salesman.</td>
+                            <td class="def-cell">هي المرتبات والحوافز والفوائد الإضافية والعمولات المكونة لدخل رجل
+                                المبيعات.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Salesmanship</span></td>
+                            <td class="term-ar">فن البيع</td>
+                            <td class="def-cell">The technique of skill or ability in selling.</td>
+                            <td class="def-cell">القدرة والمهارة والحذق في البيع.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Negotiation</span></td>
+                            <td class="term-ar">التفاوض</td>
+                            <td class="def-cell">Where price, quality of goods, terms of payment, and delivery are set
+                                by bargaining.</td>
+                            <td class="def-cell">المساومة لتحديد السعر جودة البضاعة وشروط الدفع والتسليم.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- المجموعة 4: المشتريات -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">📦 المجموعة الرابعة</span>
+                <span class="group-sub">وظيفة الشراء (Purchasing Function)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Purchasing</span></td>
+                            <td class="term-ar">وظيفة الشراء</td>
+                            <td class="def-cell">Supplying the organization with a steady flow of materials and services
+                                to meet its needs.</td>
+                            <td class="def-cell">إمداد المنظمة بتدفق مستمر من المواد والخدمات لموافاة احتياجاتها.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Purchases</span></td>
+                            <td class="term-ar">المشتريات</td>
+                            <td class="def-cell">Goods, materials, and services purchased to meet an organization's
+                                needs.</td>
+                            <td class="def-cell">البضائع والمواد والخدمات المشتراة لمقابلة احتياجات المنظمة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Order</span></td>
+                            <td class="term-ar">الطلب</td>
+                            <td class="def-cell">An instruction made by the buyer to the supplier to produce or supply
+                                goods or services in return for payment.</td>
+                            <td class="def-cell">أمر صادر من المشتري إلى المورد (البائع) لإنتاج أو توريد بضائع أو خدمات
+                                مقابل دفع الثمن.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Economic Order Quantity (EOQ)</span></td>
+                            <td class="term-ar">كمية الطلب الاقتصادي</td>
+                            <td class="def-cell">The quantity or size of an order where the sum of the cost of preparing
+                                an order and the stockholding cost reaches its minimum.</td>
+                            <td class="def-cell">حجم الطلب الذي يكون فيه مجموع تكلفة إجراءات الشراء وتكلفة الاحتفاظ
+                                بمخزون في حدها الأدنى.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Quantity Discount</span></td>
+                            <td class="term-ar">خصم الكمية</td>
+                            <td class="def-cell">A percentage deducted from the price if large quantities are ordered
+                                for delivery in one lot.</td>
+                            <td class="def-cell">نسبة مئوية مخصومة من السعر إذا تم شراء كميات كبيرة دفعة واحدة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Cash Discount</span></td>
+                            <td class="term-ar">الخصم النقدي</td>
+                            <td class="def-cell">A discount granted to a purchaser who pays before a stipulated date.
+                            </td>
+                            <td class="def-cell">الخصم الذي يمنح للمشتري الذي يدفع قيمة البضاعة في تاريخ محدد.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Lead Time</span></td>
+                            <td class="term-ar">الزمن الأمامي</td>
+                            <td class="def-cell">The time from the placing of an order to the delivery of the goods.
+                            </td>
+                            <td class="def-cell">الزمن اللازم من وقت طلب البضائع من المورد إلى وقت استلامها بمخازن
+                                المشتري.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Quality</span></td>
+                            <td class="term-ar">الجودة</td>
+                            <td class="def-cell">Total features and characteristics of a product or service that bear on
+                                its ability to satisfy a given need.</td>
+                            <td class="def-cell">جملة المظاهر والسمات الخاصة بمنتج أو خدمة والتي تؤثر على قدرته للوفاء
+                                بحاجة محددة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Quality Assurance</span></td>
+                            <td class="term-ar">تأكيد الجودة</td>
+                            <td class="def-cell">All activities and functions concerned with the attainment of quality.
+                            </td>
+                            <td class="def-cell">كل المناشط والوظائف المسئولة عن تحقيق الجودة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Quality Control</span></td>
+                            <td class="term-ar">ضبط الجودة</td>
+                            <td class="def-cell">A system for programming and coordinating the efforts of various groups
+                                in an organization to maintain or improve quality.</td>
+                            <td class="def-cell">نظام لبرمجة وتنسيق جهود مختلف المجموعات داخل المنظمة لصيانة الجودة
+                                وتحسينها.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Inspection</span></td>
+                            <td class="term-ar">التفتيش</td>
+                            <td class="def-cell">The process of measuring, examining, testing, or otherwise comparing
+                                the item with applicable requirements.</td>
+                            <td class="def-cell">عملية قياس وفحص واختبار لمقارنة المنتج مع المتطلبات العملية.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- المجموعة 5: إدارة المخازن -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">🏬 المجموعة الخامسة</span>
+                <span class="group-sub">إدارة المخازن (Stores Management)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Stores Management</span></td>
+                            <td class="term-ar">إدارة المخازن</td>
+                            <td class="def-cell">The function responsible for reception, storage, and issuing raw
+                                materials, components, tools, and finished products.</td>
+                            <td class="def-cell">الوظيفة المسئولة عن استلام وتخزين وصرف المواد الخام، قطع الغيار،
+                                المنتجات الجاهزة، وأي بضائع لازمة للتشغيل.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Identification</span></td>
+                            <td class="term-ar">التعريف (على المخزون)</td>
+                            <td class="def-cell">The process of systematically defining and describing all items of
+                                stock for easy and prompt reference.</td>
+                            <td class="def-cell">عملية تعريف ووصف جميع الأصناف المخزنة بغرض سهولة وسرعة تحديد مكانها
+                                داخل المخازن.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Receipt</span></td>
+                            <td class="term-ar">الاستلام</td>
+                            <td class="def-cell">The process of accepting from all sources all materials and parts used
+                                in the organization.</td>
+                            <td class="def-cell">عملية القبول من كافة المصادر لكل المواد وقطع الغيار المستعملة بواسطة
+                                المنظمة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Issue and Dispatch</span></td>
+                            <td class="term-ar">صرف البضائع وإرسالها</td>
+                            <td class="def-cell">The process of receiving demands, selecting items required, and handing
+                                them over to users.</td>
+                            <td class="def-cell">استلام الطلبات وجمع الأصناف وتسليمها للمستخدمين، وتشمل شحن العربات
+                                لتسليمها.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Stock Records</span></td>
+                            <td class="term-ar">سجلات المخزون</td>
+                            <td class="def-cell">Documents which record full particulars of individual receipts, issues,
+                                and balances of stock without delay.</td>
+                            <td class="def-cell">الوثائق التي يسجل فيها كل مفردات البضائع الواردة والمنصرفة والأرصدة لكل
+                                صنف بدون تأخير.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Stock Control</span></td>
+                            <td class="term-ar">مراقبة المخزون</td>
+                            <td class="def-cell">Arranging receipts and issues to ensure stock balances are adequate for
+                                consumption with regard to economy.</td>
+                            <td class="def-cell">العملية المستمرة لتنظيم البضاعة للتأكد من كفاية الأرصدة لدعم الاستهلاك
+                                الحالي مع مراعاة الاقتصاد.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Stocktaking</span></td>
+                            <td class="term-ar">جرد المخزون</td>
+                            <td class="def-cell">The process of physical verification of the quantities and condition of
+                                goods.</td>
+                            <td class="def-cell">عملية الجرد المادي لكميات البضاعة المخزنة وحالتها.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- المجموعة 6: المالية والميزانية -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">💰 المجموعة السادسة</span>
+                <span class="group-sub">تمويل الشركات والميزانية (Finance & Balance Sheet)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Retained Profits</span></td>
+                            <td class="term-ar">الأرباح المحتجزة</td>
+                            <td class="def-cell">Earnings which are not paid on common stock and accumulate year after
+                                year.</td>
+                            <td class="def-cell">الأرباح التي لا توزع على الأسهم وتتراكم سنة بعد سنة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Accumulated Reserves</span></td>
+                            <td class="term-ar">الاحتياطات التراكمية</td>
+                            <td class="def-cell">Liquid assets or capital not invested and accumulated to meet
+                                contingencies.</td>
+                            <td class="def-cell">أصول سائلة أو جزء من رأس المال لا تستثمره الشركة وتراكمه لمقابلة
+                                الطوارئ.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Preferred Stock</span></td>
+                            <td class="term-ar">الأسهم الممتازة</td>
+                            <td class="def-cell">Shares having preference over others regarding dividends or
+                                distribution of assets in liquidation; they carry fixed interest.</td>
+                            <td class="def-cell">أسهم لها أفضلية في توزيع الأرباح أو الأصول عند التصفية، وتحمل فائدة
+                                ثابتة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Common Stock</span></td>
+                            <td class="term-ar">الأسهم العادية</td>
+                            <td class="def-cell">Shares representing parts of capital entitling holders to variable
+                                dividends according to profitability.</td>
+                            <td class="def-cell">أسهم تمثل جزءاً من رأس المال وتستحق أرباحاً متغيرة حسب ربحية الشركة.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Debentures</span></td>
+                            <td class="term-ar">السندات</td>
+                            <td class="def-cell">Long-term bonds bearing fixed interest issued to raise funds; the loan
+                                is repaid at maturity.</td>
+                            <td class="def-cell">سندات طويلة الأجل بفائدة ثابتة تصدر لتوفير التمويل، وتدفع قيمتها
+                                بالكامل في تاريخ الاستحقاق.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Balance Sheet</span></td>
+                            <td class="term-ar">حساب الميزانية</td>
+                            <td class="def-cell">A financial picture as it appears on a particular day, showing assets,
+                                liabilities, and stockholders' equity.</td>
+                            <td class="def-cell">كشف يمثل الموقف المالي في يوم محدد، يوضح الأصول في جانب والخصوم وحقوق
+                                الملكية في الجانب الآخر.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Current Assets</span></td>
+                            <td class="term-ar">الأصول الجارية</td>
+                            <td class="def-cell">Cash and assets that will be turned into cash in the reasonably near
+                                future (usually within a year).</td>
+                            <td class="def-cell">تشمل النقدية والأصول التي يمكن تحويلها إلى نقد خلال عام من تاريخ
+                                الميزانية.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Marketable Securities</span></td>
+                            <td class="term-ar">الأوراق المالية سريعة البيع</td>
+                            <td class="def-cell">Temporary investment of excess cash in commercial papers and government
+                                securities.</td>
+                            <td class="def-cell">استثمار مؤقت لفائض النقد في أوراق مالية وسندات حكومية يمكن بيعها بسرعة
+                                عند الحاجة.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Accounts Receivable</span></td>
+                            <td class="term-ar">حسابات القبض</td>
+                            <td class="def-cell">Amounts not yet collected from customers for goods shipped prior to
+                                payment.</td>
+                            <td class="def-cell">المبالغ التي لم تُحصل بعد من الزبائن الذين أُرسلت لهم البضائع قبل
+                                الدفع.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Fixed Assets</span></td>
+                            <td class="term-ar">الأصول الثابتة</td>
+                            <td class="def-cell">Assets not intended for sale, used repeatedly to manufacture, display,
+                                warehouse, or transport products.</td>
+                            <td class="def-cell">الأصول التي لا تُباع وتُستعمل مراراً في الإنتاج أو العرض أو التخزين
+                                (مثل المباني والماكينات).</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Depreciation</span></td>
+                            <td class="term-ar">الاستهلاك</td>
+                            <td class="def-cell">Decline in value of a fixed asset due to wear and tear, passage of
+                                time, or obsolescence.</td>
+                            <td class="def-cell">التآكل في قيمة الأصل الثابت الناتج من الاستعمال أو مرور الزمن أو
+                                التقادم.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Intangibles</span></td>
+                            <td class="term-ar">الأصول غير الملموسة</td>
+                            <td class="def-cell">Assets having no physical existence but substantial value, like
+                                patents.</td>
+                            <td class="def-cell">أصول ليس لها وجود مادي ولكن لها قيمة كبيرة مثل براءة الاختراع.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- المجموعة 7: الموارد البشرية -->
+        <div class="group-section">
+            <div class="group-header">
+                <span class="group-title">👥 المجموعة السابعة</span>
+                <span class="group-sub">الموارد البشرية (Human Resources / Manpower)</span>
+            </div>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+
+                            <th>المصطلح (إنجليزي)</th>
+                            <th>المصطلح (عربي)</th>
+                            <th>التعريف (إنجليزي)</th>
+                            <th>التعريف (عربي)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="term-en">Manpower</span></td>
+                            <td class="term-ar">القوة العاملة</td>
+                            <td class="def-cell">People who supply the organization with their work, talent, creativity,
+                                and skills.</td>
+                            <td class="def-cell">الأفراد الذين يمدون المنظمة بعملهم وموهبتهم وإبداعهم ومهاراتهم.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Staffing</span></td>
+                            <td class="term-ar">وظيفة الأفراد</td>
+                            <td class="def-cell">Management function dealing with recruitment, selection, placement,
+                                training, and development.</td>
+                            <td class="def-cell">الوظيفة الإدارية التي تقوم باستقطاب الأعضاء واختيارهم وتدريبهم
+                                وتطويرهم.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Recruitment</span></td>
+                            <td class="term-ar">الاستقطاب</td>
+                            <td class="def-cell">Developing a pool of job candidates through advertisements, agencies,
+                                or campus visits.</td>
+                            <td class="def-cell">تجهيز مجموعة من المترشحين للوظيفة عن طريق الإعلانات أو وكالات التوظيف.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Training</span></td>
+                            <td class="term-ar">التدريب</td>
+                            <td class="def-cell">Designed to improve job skills and capabilities for current tasks.</td>
+                            <td class="def-cell">نشاط يصمم لتحسين مهارات الوظيفة الحالية للموظفين والمديرين.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Development</span></td>
+                            <td class="term-ar">التطوير</td>
+                            <td class="def-cell">Programs designed to educate employees beyond current requirements to
+                                prepare them for promotion.</td>
+                            <td class="def-cell">برامج تهدف لتعليم الموظفين معارف تتجاوز احتياجات موقعهم الحالي لتجهيزهم
+                                للترقي.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Salary</span></td>
+                            <td class="term-ar">المرتب (الماهية)</td>
+                            <td class="def-cell">Fixed payment made by an employer, often monthly, for professional or
+                                office work.</td>
+                            <td class="def-cell">دفعية ثابتة يقدمها المخدم شهرياً غالباً مقابل العمل المهني أو المكتبي.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Wage</span></td>
+                            <td class="term-ar">الأجر</td>
+                            <td class="def-cell">Payment for work, especially on a daily, hourly, or weekly basis.</td>
+                            <td class="def-cell">دفعية مقابل الخدمة خاصة للعمال على أساس يومي أو ساعي أو أسبوعي.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Job Description</span></td>
+                            <td class="term-ar">الوصف الوظيفي</td>
+                            <td class="def-cell">A written statement of the title, duties, and responsibilities of a
+                                position.</td>
+                            <td class="def-cell">بيان مكتوب لمحتوى الوظيفة واسم الموقع وواجباته ومسؤولياته.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Job Specification</span></td>
+                            <td class="term-ar">التوصيف الوظيفي</td>
+                            <td class="def-cell">Defines the background, experience, and personal characteristics needed
+                                for a position.</td>
+                            <td class="def-cell">يحدد الخبرات والصفات الشخصية التي يجب أن يمتلكها الفرد لشغل الوظيفة
+                                بفاعلية.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Fringe Benefits</span></td>
+                            <td class="term-ar">إضافات المرتب</td>
+                            <td class="def-cell">Additional advantages like insurance or pension plans to supplement
+                                regular pay.</td>
+                            <td class="def-cell">ميزات إضافية يقدمها المخدم (مثل التأمين الصحي) لدعم مرتب الموظف.</td>
+                        </tr>
+                        <tr>
+                            <td><span class="term-en">Turnover Rate</span></td>
+                            <td class="term-ar">معدل دوران العاملين</td>
+                            <td class="def-cell">The rate at which employees leave work because of resignations,
+                                retirements, etc.</td>
+                            <td class="def-cell">المعدل الذي يوضح درجة تخلي الموظفين عن العمل بسبب الاستقالة أو التقاعد.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <footer>
+            كامل الطالب ادم
+            <br>
+            جامعة امدرمان الاسلامية
+            <br>
+            كلية العلوم الإدارية
+            <br>
+            تم تجميعها وتنظيمها لتسهيل الدراسة والمراجعة. © 2026
+        </footer>
+
+    </div>
+
+    <!-- كود الجافا سكربت لإضافة نطق الكلمات والتعريفات -->
+    <script>
+        let voices = [];
+        const voiceSelect = document.getElementById('voice-select');
+        const speedRange = document.getElementById('speed-range');
+        const speedVal = document.getElementById('speed-val');
+        const pitchRange = document.getElementById('pitch-range');
+        const pitchVal = document.getElementById('pitch-val');
+
+        // تحميل وتحديث قائمة الأصوات الإنجليزية المتاحة في جهاز المستخدم
+        function populateVoices() {
+            voices = window.speechSynthesis.getVoices();
+            // تصفية الأصوات لتشمل فقط الأصوات الإنجليزية (en)
+            const englishVoices = voices.filter(voice => voice.lang.startsWith('en'));
+
+            voiceSelect.innerHTML = '';
+            englishVoices.forEach((voice, index) => {
+                const option = document.createElement('option');
+                option.textContent = `${voice.name} (${voice.lang})`;
+                option.value = voice.name;
+                voiceSelect.appendChild(option);
+            });
+
+            // إذا لم توجد أصوات بعد، نضع خياراً افتراضياً
+            if (englishVoices.length === 0) {
+                const option = document.createElement('option');
+                option.textContent = "الصوت الافتراضي للمتصفح";
+                option.value = "default";
+                voiceSelect.appendChild(option);
+            }
+        }
+
+        // الانتظار لتحميل الأصوات في المتصفح
+        populateVoices();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = populateVoices;
+        }
+
+        // تحديث أرقام السرعة والحدة المعروضة عند سحب الشريط
+        speedRange.addEventListener('input', (e) => { speedVal.textContent = e.target.value; });
+        pitchRange.addEventListener('input', (e) => { pitchVal.textContent = e.target.value; });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const rows = document.querySelectorAll("tbody tr");
+
+            rows.forEach(row => {
+                // 1. زر المصطلح الإنجليزي
+                const termCell = row.cells[0];
+                const termSpan = termCell.querySelector(".term-en");
+                if (termSpan) {
+                    const termText = termSpan.textContent.trim();
+                    const micBtn = document.createElement("button");
+                    micBtn.className = "speak-btn";
+                    micBtn.innerHTML = "🎙️";
+                    micBtn.title = "انطق المصطلح الإنجليزي";
+                    micBtn.addEventListener("click", () => speakText(termText));
+
+                    const container = document.createElement("div");
+                    container.className = "term-container";
+                    termSpan.parentNode.insertBefore(container, termSpan);
+                    container.appendChild(termSpan);
+                    container.appendChild(micBtn);
+                }
+
+                // 2. زر التعريف الإنجليزي
+                const defEnCell = row.cells[2];
+                if (defEnCell) {
+                    const defText = defEnCell.textContent.trim();
+                    const micBtnDef = document.createElement("button");
+                    micBtnDef.className = "speak-btn";
+                    micBtnDef.innerHTML = "🎙️";
+                    micBtnDef.title = "انطق التعريف الإنجليزي";
+                    micBtnDef.addEventListener("click", () => speakText(defText));
+
+                    defEnCell.classList.add("def-en-container");
+                    defEnCell.appendChild(micBtnDef);
+                }
+            });
+        });
+
+        // دالة النطق المحدثة التي تقرأ القيم من لوحة التحكم
+        function speakText(text) {
+            window.speechSynthesis.cancel(); // إيقاف أي نطق مستمر فوراً
+
+            if (text) {
+                const utterance = new SpeechSynthesisUtterance(text);
+
+                // ضبط السرعة والحدة بناء على اختيارات المستخدم
+                utterance.rate = parseFloat(speedRange.value);
+                utterance.pitch = parseFloat(pitchRange.value);
+
+                // اختيار الصوت المحدد من القائمة
+                const selectedVoiceName = voiceSelect.value;
+                const selectedVoice = voices.find(v => v.name === selectedVoiceName);
+                if (selectedVoice) {
+                    utterance.voice = selectedVoice;
+                } else {
+                    utterance.lang = "en-US"; // كخيار احتياطي
+                }
+
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+    </script>
+</body>
+
+</html>
